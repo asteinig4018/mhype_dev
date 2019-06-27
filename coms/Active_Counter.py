@@ -35,3 +35,6 @@ class Active_Counter:
 		self.counter = new_count
 		self.max = self.counter + diff
 		return self.counter
+
+	def get_count(self):
+		return self.counter

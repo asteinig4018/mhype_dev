@@ -1,8 +1,16 @@
 import Checksum
+import Active_Counter
 import json
 import time
 import struct
 import socket
+
+'''
+Transmitter Object
+
+Message layout: 2 byte priotiy, data, 16 byte checksum 
+Includes active counter
+'''
 
 class Transmitter:
 
@@ -11,10 +19,20 @@ class Transmitter:
 		self.sock.bind((ip, port))
 		self.rxip = rxip
 		self.rxport = rxport
+		self.counter = Active_Counter.Active_Counter()
 
-	def send_message(self, data):
+	def send_message(self, data, priority = 11):
 		cksm = Checksum.calculate(data)
-		message = json.dumps(data) + cksm
-		self.sock.sendto(message, (rxip, rxport))
+		message = priority + json.dumps(data) + cksm
+		try:
+			self.sock.sendto(message, (rxip, rxport))
+		#TODO implement catch, fail, etc
+		self.counter.increment()
+
+	def get_count(self):
+		return self.counter.get_count()
+
+	def update_count(self, new_count):
+		self.counter.update_count(new_count)
 
 
