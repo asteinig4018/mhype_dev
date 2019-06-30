@@ -6,6 +6,8 @@ import json
 Incoming message handler
 
 manages checksum, active counter, priority bytes
+must be used with some kind of message udp receiver
+
 handler return types:
 None - counter update message
 False - msg error

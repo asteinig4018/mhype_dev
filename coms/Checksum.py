@@ -10,6 +10,6 @@ import bencode
 
 
 #incoming data should be dictionary
-def calculate(self,data):
+def calculate(data):
 	data_md5 = hashlib.md5(bencode.bencode(data)).hexdigest()
 	return data_md5
