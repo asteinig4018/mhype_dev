@@ -18,6 +18,11 @@ class Active_Counter:
 		self.counter += 1
 		self.max += 1
 
+	#decreases counter by one and shifts window
+	def decrement(self):
+		self.counter -=1
+		self.max -= 1
+
 	#set new window width
 	def set_window(self, new_width):
 		self.max = counter + new_width
