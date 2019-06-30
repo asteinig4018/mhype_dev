@@ -1,8 +1,6 @@
 import Checksum
 import Active_Counter
 import json
-import time
-import struct
 import socket
 
 '''
