@@ -10,4 +10,5 @@ proper functionality.
 class Sensor_Base(abc.ABC):
 	@abc.abstractmethod
 	def get_data(self):
+		#returns [name, data]
 		pass

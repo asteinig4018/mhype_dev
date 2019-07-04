@@ -3,9 +3,11 @@ import time
 
 class Pod_Listener:
 
-	def __init__(self):
+	def __init__(self, logfile = 0):
 		self.IMH = Incoming_Message_Handler()
 		self.error_count = 0
+		if(logfile != 0):
+			pass #todo
 
 	def run(self, ip = "192.168.1.25", port = 3000, timeout = 0):
 		start_time = time.time()
