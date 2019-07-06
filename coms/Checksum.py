@@ -1,6 +1,9 @@
 ##############################################
 '''
-Checksum (creates string of length 32)
+Checksum 
+
+Creates string of length 32 of a unique hash.
+Identical data will generate the same hash
 If someone is into crypto, implement a checksum.
 For now this will work.
 '''

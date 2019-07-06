@@ -2,6 +2,16 @@ import Transmitter
 import time
 import Data_Collector
 
+#########################################################
+'''
+Pod Updater
+
+This object is to be run in a seperate thread. It creates
+an update for the base station using the data collector object
+and a transmitter object to send the data. 
+'''
+#########################################################
+
 class Pod_Updater:
 
 	def __init__(self):

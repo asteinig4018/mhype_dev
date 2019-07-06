@@ -3,12 +3,14 @@ import Active_Counter
 import json
 import socket
 
+################################################
 '''
 Transmitter Object
 
 Message layout: 2 byte priotiy, data, 16 byte checksum 
 Includes active counter handling
 '''
+#################################################
 
 class Transmitter:
 

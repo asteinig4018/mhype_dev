@@ -1,7 +1,19 @@
 import Incoming_Message_Handler
 import Command_Manager
+import socket
 import time
 import logging as log
+
+############################################################
+'''
+Pod Listener
+
+On Pod object to be run in a thread that listens for incomming 
+messages from the base station. Incoming messages are handled
+first by the Incoming message handler and commands within those
+messages are handled and carried out by the command manager.
+'''
+#############################################################
 
 class Pod_Listener:
 
@@ -20,6 +32,7 @@ class Pod_Listener:
 		self.sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
 		self.sock.bind((ip,port))
 
+		#TODO add timeout
 		while True:
 			data, addr = self.sock.recvfrom(1024)
 			msg = self.IMH.handle_message(data)
