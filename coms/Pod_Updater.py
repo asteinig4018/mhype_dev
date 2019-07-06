@@ -17,6 +17,9 @@ class Pod_Updater:
 	def __init__(self):
 		self.transmitter = Transmitter.Transmitter()
 		data_collector = Data_Collector.Data_Collector()
+
+		#initialize sensors
+		#TODO write function that does this from .par file
 		data_collector.add_LD_Sensor()
 
 	def get_data(self):
@@ -27,7 +30,7 @@ class Pod_Updater:
 		#calculate major variables
 		#package into json
 		#add current count
-		self.data["active_count"]:self.transmitter.get_count()
+		self.data['active_count']:self.transmitter.get_count()
 
 	def send(self):
 		self.transmitter.send_message(self.data)

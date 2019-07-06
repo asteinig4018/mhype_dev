@@ -3,6 +3,7 @@ import Active_Counter
 import json
 import logging as log
 
+#######################################################
 '''
 Incoming message handler
 
@@ -21,6 +22,7 @@ Priority bytes:
 
 to be implemented: smart counter window
 '''
+######################################################
 
 class Incoming_Message_Handler:
 

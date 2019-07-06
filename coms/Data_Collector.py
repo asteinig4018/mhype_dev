@@ -18,7 +18,7 @@ class Data_Collector:
 	def collect_data(self):
 		#empty dictionary
 		data = {} 
-		for sensor in sensor_list:
+		for sensor in self.sensor_list:
 			pkg = sensor.get_data()
 			data[pkg[0]] = pkg[1]
 
@@ -27,6 +27,6 @@ class Data_Collector:
 
 	#####  ADD Sensor Types Here ####
 	#TODO setup via .par file
-	def add_LD_Sensor(self):
-		x = LD_Sensor(self)
+	def add_LD_Sensor(self, name):
+		x = LD_Sensor.LD_Sensor(name)
 		self.sensor_list.append(x)
