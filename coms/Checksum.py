@@ -6,10 +6,10 @@ For now this will work.
 '''
 ##############################################
 import hashlib
-import bencode
+import json
 
 
 #incoming data should be dictionary
 def calculate(data):
-	data_md5 = hashlib.md5(bencode.bencode(data)).hexdigest()
+	data_md5 = hashlib.md5(json.dumps(data)).hexdigest()
 	return data_md5

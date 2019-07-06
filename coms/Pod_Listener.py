@@ -1,15 +1,19 @@
 import Incoming_Message_Handler
 import Command_Manager
 import time
+import logging as log
 
 class Pod_Listener:
 
-	def __init__(self, logfile = 0):
-		self.IMH = Incoming_Message_Handler.Incoming_Message_Handler()
+	def __init__(self, verbose = False):
+		self.IMH = Incoming_Message_Handler.Incoming_Message_Handler(verbose)
 		self.CM = Command_Manager.Command_Manager()
 		self.error_count = 0
-		if(logfile != 0):
-			pass #todo
+		self.verbose = verbose
+
+	def vprint(self, output):
+		if(self.verbose):
+			log.info(output)
 
 	def run(self, ip = "192.168.1.25", port = 3000, timeout = 0):
 		start_time = time.time()
