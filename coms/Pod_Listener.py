@@ -33,20 +33,23 @@ class Pod_Listener:
 		self.sock.bind((ip,port))
 
 		#TODO add timeout
-		while True:
-			data, addr = self.sock.recvfrom(1024)
-			msg = self.IMH.handle_message(data)
-			if msg == None: #counter update
-				continue
-			if not msg: #error message
-				self.error_count +=1
-				continue
+		try:
+			while True:
+				data, addr = self.sock.recvfrom(1024)
+				msg = self.IMH.handle_message(data)
+				if msg == None: #counter update
+					continue
+				if not msg: #error message
+					self.error_count +=1
+					continue
 
-			#cases for commands given to start threads and unpack data
-			self.CM.handle(msg)
-			#all cases listed and managed
+				#cases for commands given to start threads and unpack data
+				self.CM.handle(msg)
+				#all cases listed and managed
 
-			#timeout condition
-			elapsed_time = time.time() - start_time
-			if timeout != 0 and elapsed_time > timeout:
-				break
+				#timeout condition
+				elapsed_time = time.time() - start_time
+				if timeout != 0 and elapsed_time > timeout:
+					break
+		finally:
+			log.info("ending Listener")

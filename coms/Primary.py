@@ -1,5 +1,7 @@
 import Pod_Listener
 import Pod_Updater
+import threading
+import time
 
 ###################################################
 '''
@@ -10,11 +12,22 @@ Also handles all keyboard input
 '''
 ####################################################
 
-def initialize():
-	listener = Pod_Listener.Pod_Listener()
-	updater = Pod_Updater.Pod_Updater()
+class Primary:
 
-def start():
-	#do threads
-	pass
+	def __init__(self):
+		listener = Pod_Listener.Pod_Listener()
+		updater = Pod_Updater.Pod_Updater()
+		self.updaterThread = threading.Thread(target= updater.run)
+		self.listenerThread = threading.Thread(target=listener.run)
+
+	def start(self, timeout=10):
+		#do threads
+		self.updaterThread.start()
+		self.listenerThread.start()
+
+		#timeout
+		time.sleep(timeout)
+
+		self.updaterThread.join()
+		self.listenerThread.join()
 	

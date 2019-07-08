@@ -1,4 +1,5 @@
 import LD_Sensor
+import logging as log
 
 ###################################################
 '''
@@ -20,6 +21,7 @@ class Data_Collector:
 		data = {} 
 		for sensor in self.sensor_list:
 			pkg = sensor.get_data()
+			log.info('Data recieved: ' + str(pkg))
 			data[pkg[0]] = pkg[1]
 
 		return data

@@ -1,6 +1,7 @@
 import Transmitter
 import time
 import Data_Collector
+import logging as log
 
 #########################################################
 '''
@@ -20,7 +21,7 @@ class Pod_Updater:
 
 		#initialize sensors
 		#TODO write function that does this from .par file
-		data_collector.add_LD_Sensor()
+		data_collector.add_LD_Sensor("uartlite_1")
 
 	def get_data(self):
 		#clear data dictionary
@@ -39,5 +40,13 @@ class Pod_Updater:
 		get_data()
 		send()
 		time.sleep(timeout)
+
+	def run(self)
+		try:
+			while True:
+				self.loop()
+
+		finally:
+			log.info("ending Updater")
 
 		
