@@ -30,4 +30,8 @@ class Primary:
 
 		self.updaterThread.join()
 		self.listenerThread.join()
+
+
+primary = Primary()
+primary.start()
 	
