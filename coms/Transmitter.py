@@ -27,7 +27,9 @@ class Transmitter:
 		try:
 			self.sock.sendto(message, (rxip, rxport))
 		#TODO implement catch, fail, etc
-		if(count_incr):
+		except Exception:
+			pass
+		if count_incr:
 			self.counter.increment()
 
 	def get_count(self):

@@ -16,7 +16,7 @@ and a transmitter object to send the data.
 class Pod_Updater:
 
 	def __init__(self):
-		self.transmitter = Transmitter.Transmitter()
+		self.transmitter = Transmitter.Transmitter("127.0.0.1", 3000, "127.0.0.1", 3000)
 		data_collector = Data_Collector.Data_Collector()
 
 		#initialize sensors
@@ -31,7 +31,7 @@ class Pod_Updater:
 		#calculate major variables
 		#package into json
 		#add current count
-		self.data['active_count']:self.transmitter.get_count()
+		self.data['active_count'] = self.transmitter.get_count()
 
 	def send(self):
 		self.transmitter.send_message(self.data)
@@ -41,7 +41,7 @@ class Pod_Updater:
 		send()
 		time.sleep(timeout)
 
-	def run(self)
+	def run(self):
 		try:
 			while True:
 				self.loop()

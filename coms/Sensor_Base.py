@@ -9,7 +9,9 @@ proper functionality.
 '''
 ##############################################
 
-class Sensor_Base(abc.ABC):
+class Sensor_Base:
+	__metaclass__ = abc.ABCMeta
+
 	@abc.abstractmethod
 	def get_data(self):
 		#returns [name, data]

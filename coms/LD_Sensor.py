@@ -23,6 +23,7 @@ class LD_Sensor(Sensor_Base.Sensor_Base):
 		self.laser_dist_port.close()
 		self.laser_dist_port.open()
 		if not laser_dist_port.isOpen():
+			pass
     		log.info("ERROR 21: Laser Distance Sensor UART port was not opened properly")
 
 		#reset buffers
