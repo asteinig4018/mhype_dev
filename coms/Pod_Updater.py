@@ -17,17 +17,17 @@ class Pod_Updater:
 
 	def __init__(self):
 		self.transmitter = Transmitter.Transmitter("127.0.0.1", 3000, "127.0.0.1", 3000)
-		data_collector = Data_Collector.Data_Collector()
+		self.data_collector = Data_Collector.Data_Collector()
 
 		#initialize sensors
 		#TODO write function that does this from .par file
-		data_collector.add_LD_Sensor("uartlite_1")
+		self.data_collector.add_LD_Sensor("uartlite_1")
 
 	def get_data(self):
 		#clear data dictionary
 		self.data = {}
 		#grab data from registers, as dictionary
-		self.data = data_collector.collect_data()
+		self.data = self.data_collector.collect_data()
 		#calculate major variables
 		#package into json
 		#add current count

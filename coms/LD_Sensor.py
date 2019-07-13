@@ -19,10 +19,10 @@ class LD_Sensor(Sensor_Base.Sensor_Base):
 		self.name = name
 
 		#open uart port
-		self.laser_dist_port = serial.Serial('/dev/ttyO5', baudrate=115200, timeout=.02, write_timeout=.02)
+		self.laser_dist_port = serial.Serial('/dev/ttyO5', baudrate=38400, timeout=.02, write_timeout=.02)
 		self.laser_dist_port.close()
 		self.laser_dist_port.open()
-		if not laser_dist_port.isOpen():
+		if not self.laser_dist_port.isOpen():
 			pass
     		log.info("ERROR 21: Laser Distance Sensor UART port was not opened properly")
 
@@ -33,12 +33,16 @@ class LD_Sensor(Sensor_Base.Sensor_Base):
 		#start continuous update
 		#TODO update to value for continuous
 		self.laser_dist_port.write(b'/020D0e0C.')
-
+		#self.laser_dist_port.write(b'/')
+		#self.laser_dist_port.write(b'0')
+		#self.laser_dist_port.write(b'2')
 
 	def get_data(self):
 		#TODO check byte number
-		s_in = self.laser_dist_port.read(14).decode('ascii')
+		s_in = self.laser_dist_port.read(14).decode('utf-8')
 		
 		#parse
+		print "incoming: "
+		print s_in
 
 		return [self.name, s_in]
