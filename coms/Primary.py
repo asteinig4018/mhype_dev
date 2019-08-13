@@ -23,15 +23,17 @@ class Primary:
 	def start(self, timeout=10):
 		#do threads
 		self.updaterThread.start()
-		self.listenerThread.start()
-
+		#self.listenerThread.start()
+		print "thread started"
 		#timeout
 		time.sleep(timeout)
 
+		print "end"
 		self.updaterThread.join()
-		self.listenerThread.join()
+		#self.listenerThread.join()
 
-
-primary = Primary()
-primary.start()
-	
+try:
+	primary = Primary()
+	primary.start()
+except KeyboardInterrupt:
+	raise	
