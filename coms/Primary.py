@@ -15,7 +15,7 @@ Also handles all keyboard input
 class Primary:
 
 	def __init__(self):
-		listener = Pod_Listener.Pod_Listener()
+		listener = Pod_Listener.Pod_Listener(True)
 		updater = Pod_Updater.Pod_Updater()
 		self.updaterThread = threading.Thread(target= updater.run_update)
 		self.listenerThread = threading.Thread(target=listener.run_listen)

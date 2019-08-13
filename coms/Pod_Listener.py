@@ -36,6 +36,7 @@ class Pod_Listener:
 		try:
 			while True:
 				data, addr = self.sock.recvfrom(1024)
+				print data
 				msg = self.IMH.handle_message(data)
 				if msg == None: #counter update
 					continue
