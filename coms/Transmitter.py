@@ -14,7 +14,7 @@ Includes active counter handling
 
 class Transmitter:
 
-	def __init__(self, ip="192.168.1.25", port=3000, rxip="192.168.1.21", rxport=3000):
+	def __init__(self, ip="192.168.1.25", port=8000, rxip="192.168.1.21", rxport=3000):
 		self.sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
 		self.sock.bind((ip, port))
 		self.rxip = rxip
