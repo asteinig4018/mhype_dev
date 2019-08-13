@@ -27,7 +27,7 @@ class Pod_Updater:
 		#clear data dictionary
 		self.data = {}
 		#grab data from registers, as dictionary
-		self.data = self.data_collector.collect_data()
+		#self.data = self.data_collector.collect_data()
 		#calculate major variables
 		#package into json
 		#add current count
@@ -37,8 +37,8 @@ class Pod_Updater:
 		self.transmitter.send_message(self.data)
 
 	def loop(self, timeout = 0.01):
-		get_data()
-		send()
+		self.get_data()
+		self.send()
 		time.sleep(timeout)
 
 	def run_update(self):
