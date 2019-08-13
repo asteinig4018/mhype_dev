@@ -41,7 +41,7 @@ class Pod_Updater:
 		send()
 		time.sleep(timeout)
 
-	def run(self):
+	def run_update(self):
 		try:
 			while True:
 				self.loop()

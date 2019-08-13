@@ -27,7 +27,7 @@ class Pod_Listener:
 		if(self.verbose):
 			log.info(output)
 
-	def run(self, ip = "192.168.1.25", port = 3000, timeout = 0):
+	def run_listen(self, ip = "192.168.1.25", port = 3000, timeout = 0):
 		start_time = time.time()
 		self.sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
 		self.sock.bind((ip,port))
