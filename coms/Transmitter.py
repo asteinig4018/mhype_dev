@@ -25,7 +25,7 @@ class Transmitter:
 		cksm = Checksum.calculate(data)
 		message = priority + json.dumps(data) + cksm
 		try:
-			self.sock.sendto(message, (rxip, rxport))
+			self.sock.sendto(message, (self.rxip, self.rxport))
 		#TODO implement catch, fail, etc
 		except Exception:
 			pass
