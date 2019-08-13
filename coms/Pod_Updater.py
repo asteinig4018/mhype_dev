@@ -16,7 +16,7 @@ and a transmitter object to send the data.
 class Pod_Updater:
 
 	def __init__(self):
-		self.transmitter = Transmitter.Transmitter("192.168.1.25", 3000, "192.168.1.21", 3000)
+		self.transmitter = Transmitter.Transmitter("192.168.1.25", 8000, "192.168.1.21", 3000)
 		self.data_collector = Data_Collector.Data_Collector()
 
 		#initialize sensors
