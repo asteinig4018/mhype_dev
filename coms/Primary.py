@@ -20,7 +20,7 @@ class Primary:
 		self.updaterThread = threading.Thread(target= updater.run_update)
 		self.listenerThread = threading.Thread(target=listener.run_listen)
 
-	def start(self, timeout=10):
+	def start(self, timeout=100):
 		#do threads
 		self.updaterThread.start()
 		#self.listenerThread.start()
